@@ -37,7 +37,7 @@ class CANMessage:
 
 ### send_door_close_message
   use by: ``` send_door_close_message() ```
-  Sends message with door opening
+  Sends message with door closing
 
 ## Example usage
 ```
