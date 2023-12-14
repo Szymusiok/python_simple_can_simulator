@@ -40,7 +40,6 @@ def generate_can_messages():
             message_data = [random.randint(0, 255) * 2 for _ in range(8)]
 
         yield CANMessage(message_id, message_data, message_type)
-        time.sleep(1)
 
 
 # Queue to store messages
@@ -51,15 +50,12 @@ message_queue = deque(maxlen=10)
 def send_random_message():
     message = next(message_generator)
     message_queue.append(message)
-    print(f"Sent CAN message - Type: {message.message_type}, ID: {message.id}, Data: {message.data}")
 
 
 # Retrieving a single message from the queue
 def receive_message():
     if message_queue:
         received_message = message_queue.popleft()
-        print(
-            f"Received CAN message - Type: {received_message.message_type}, ID: {received_message.id}, Data: {received_message.data}")
         return received_message
     else:
         print("No messages in the receive queue")
