@@ -8,6 +8,7 @@ class MessageType:
     ODOMETER = "Odometr"
     DOOR_OPEN = "Opening the doors"
     STOP_BUTTON = "STOP button"
+    DOOR_CLOSE = "Closing the door"
 ```
 ```
 # A class that simulates a CAN message
@@ -21,7 +22,7 @@ class CANMessage:
 
 ### send_random_message
   use by: ``` send_random_message() ```
-  Generates a random CAN message from a possible 3 types: ODOMETR, DOOR_OPEN, STOP_BUTTON and adds it to the queue.
+  Generates a random CAN message from a possible 2 types: ODOMETR and STOP_BUTTON and adds it to the queue.
 
 ### receive_message
   use by: ``` received_message = receive_message() ```
