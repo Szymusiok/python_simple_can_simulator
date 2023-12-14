@@ -30,21 +30,32 @@ class CANMessage:
 ### handle_message
   use by: ``` text = handle_message(received_message) ```
   Returns special text depending on the type of message
-  
+
+### send_door_open_message
+  use by: ``` send_door_open_message() ```
+  Sends message with door opening
+
+### send_door_close_message
+  use by: ``` send_door_close_message() ```
+  Sends message with door opening
 
 ## Example usage
 ```
-from canSimulator import handle_message, receive_message, send_random_message
+from canSimulator import (handle_message, receive_message, send_random_message, send_door_open_message,
+                          send_door_close_message)
 
 for _ in range(5):
     send_random_message()
 
-for _ in range (5):
+send_door_open_message()
+send_door_close_message()
+
+for _ in range (7):
     received_message = receive_message()
     if received_message:
         print(f"Received CAN message - Type: {received_message.message_type}, ID: {received_message.id}, Data: {received_message.data}")
-        tekst = handle_message(received_message)
-        print(tekst)
+        print(handle_message(received_message))
+
 ```
 
 
